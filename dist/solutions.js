@@ -1,3 +1,4 @@
+console.log("hi");
 const multiplyValue = (value, multiplier) => {
     if (multiplier === undefined) {
         return value * 2;
@@ -6,7 +7,6 @@ const multiplyValue = (value, multiplier) => {
         return value * multiplier;
     }
 };
-
 const processInput = (value) => {
     if (typeof value === "string") {
         return value.trim().toLowerCase();
@@ -23,12 +23,10 @@ const processInput = (value) => {
         }
     }
 };
-
 const formatCoordinate = (coordinate) => {
     const [latitude, longitude, locationName] = coordinate;
     return `Location: ${locationName} (${latitude}, ${longitude})`;
 };
-
 const concatenateArrays = (...arrays) => {
     const combinedArray = [];
     for (const currentArray of arrays) {
@@ -36,15 +34,12 @@ const concatenateArrays = (...arrays) => {
     }
     return combinedArray;
 };
-
 const getPopularCourses = (courses, minStudents) => {
     return courses.filter((course) => course.isPublished && course.students >= minStudents);
 };
-
 const pluckValues = (items, key) => {
     return items.map((item) => item[key]);
 };
-
 class Employee {
     name;
     baseSalary;
@@ -56,7 +51,6 @@ class Employee {
         return `Employee: ${this.name}, Base Salary: ${this.baseSalary}`;
     }
 }
-
 class Manager extends Employee {
     department;
     constructor(name, baseSalary, department) {
@@ -67,5 +61,13 @@ class Manager extends Employee {
         return `Manager of ${this.department}: ${this.name}`;
     }
 }
-
+const validateAgeAsync = (age) => {
+    return new Promise((resolve, reject) => {
+        if (age < 18) {
+            reject(new Error("Access Denied: Must be 18 or older"));
+            return;
+        }
+        setTimeout(() => resolve("Access Granted"), 1000);
+    });
+};
 export {};
